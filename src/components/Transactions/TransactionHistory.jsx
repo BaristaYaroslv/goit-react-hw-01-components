@@ -1,19 +1,19 @@
 import PropTypes from 'prop-types';
-import css from '../Transactions/TransactionHistory.module.css';
+import { Table, TableHead, TableBody} from '../Transactions/TransactionHistory.styled';
 import { TransactionItem } from '../Transactions/TransactionItem';
 
 export function TransactionHistory({items}) {
     return (
-        <table className={css.history}>
-            <thead className={css.history__head}>
-                <tr className={css.history__items}>
+        <Table >
+            <TableHead>
+                <tr>
                 <th>Type</th>
                 <th>Amount</th>
                 <th>Currency</th>
                 </tr>
-            </thead>
+            </TableHead>
                 
-            <tbody className={css.history__body}>
+            <TableBody>
                 {items.map(({
                         id,
                         type,
@@ -29,8 +29,8 @@ export function TransactionHistory({items}) {
                             />
                         );
                     })}
-            </tbody>
-            </table>
+            </TableBody>
+            </Table>
     );
 
 };

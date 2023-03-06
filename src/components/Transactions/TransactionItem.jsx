@@ -1,26 +1,18 @@
 import PropTypes from 'prop-types';
-import css from './TransactionItem.module.css';
 
-
-export function TransactionItem({
-    type,
-    amount,
-    currency,
-}) {
+export const TransactionItem = ({id, type, amount, currency}) => {
     return (
-        <tr className={css.history__item}>
-            <td className={css.history__type}>{type}</td>
-            <td className={css.history__amount}>{amount}</td>
-            <td className={css.history__currency}>{currency}</td>
+        <tr key={id}>
+            <td>{type}</td>
+            <td>{amount}</td>
+            <td>{currency}</td>
         </tr>
-    );
+    )
 };
 
 TransactionItem.propTypes = {
+    id: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    amount: PropTypes.oneOfType([
-        PropTypes.string.isRequired,
-        PropTypes.number.isRequired,
-    ]),
+    amount: PropTypes.string.isRequired,
     currency: PropTypes.string.isRequired,
 }
